@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+  <Identity Name="80e1dd6b-2a32-480b-b89c-3ea163163a54" Publisher="CN=彥勳" Version="1.0.0.7" />
+  <Properties>
+    <DisplayName>BackGroundUploadOrders</DisplayName>
+    <PublisherDisplayName>彥勳</PublisherDisplayName>
+    <Logo>Assets\storeLogo-sdk.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="BackGroundUploadOrders.App">
+      <m2:VisualElements DisplayName="BackGroundUploadOrders" Square150x150Logo="Assets\squaretile-sdk.png" Square30x30Logo="Assets\smalltile-Windows-sdk.png" Description="BackGroundUploadOrders" ForegroundText="light" BackgroundColor="#00b2f0">
+        <m2:LockScreen Notification="badgeAndTileText" BadgeLogo="Assets\badgelogo-sdk.png" />
+        <m2:DefaultTile ShortName="BGTask CS" Wide310x150Logo="Assets\tile-sdk.png" DefaultSize="square150x150Logo">
+          <m2:ShowNameOnTiles>
+            <m2:ShowOn Tile="square150x150Logo" />
+            <m2:ShowOn Tile="wide310x150Logo" />
+          </m2:ShowNameOnTiles>
+        </m2:DefaultTile>
+        <m2:SplashScreen Image="Assets\splash-Windows-sdk.png" BackgroundColor="#00b2f0" />
+        <m2:ApplicationView MinWidth="width320" />
+      </m2:VisualElements>
+      <Extensions>
+        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTask.NormalBackgroundTask">
+          <BackgroundTasks>
+            <Task Type="systemEvent" />
+            <Task Type="timer" />
+          </BackgroundTasks>
+        </Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTask.ProductUpdateBackgroundTask">
+          <BackgroundTasks>
+            <Task Type="systemEvent" />
+            <Task Type="timer" />
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

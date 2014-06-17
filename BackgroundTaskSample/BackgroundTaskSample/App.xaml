@@ -1,0 +1,13 @@
+﻿<Application
+    x:Class="BackgroundTaskSample.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BackgroundTaskSample"
+    xmlns:localData="using:BackgroundTaskSample.Data">
+
+    <Application.Resources>
+
+        <!-- 應用程式特定資源 -->
+        <x:String x:Key="AppName">BackGroundUploadOrders</x:String>
+    </Application.Resources>
+</Application>

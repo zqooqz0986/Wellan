@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace 伊莎貝爾輔銷SD
 {
-    public class CodeType
+    public class 類別代碼
     {
         public string Type { get; set; }
 

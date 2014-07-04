@@ -12,6 +12,7 @@ namespace 伊莎貝爾輔銷SD
         /// 查詢所有分店
         /// </summary>        
         /// <returns>商品's</returns>
-        IEnumerable<分店> 查詢分店();
+        // TODO : 離線
+        // IEnumerable<分店> 查詢分店();
     }
 }

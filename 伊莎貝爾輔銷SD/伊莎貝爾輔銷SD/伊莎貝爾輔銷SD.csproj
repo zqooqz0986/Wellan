@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeType.cs" />
+    <Compile Include="I分店模組.cs" />
     <Compile Include="I商品模組.cs" />
     <Compile Include="I店員模組.cs" />
     <Compile Include="I業務模組.cs" />
@@ -49,6 +50,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="促銷活動.cs" />
+    <Compile Include="分店.cs" />
     <Compile Include="商品.cs" />
     <Compile Include="喜卡.cs" />
     <Compile Include="店員.cs" />

@@ -21,12 +21,21 @@ namespace 伊莎貝爾輔銷SD
         /// </summary>
         /// <param name="分店編號">分店編號</param>       
         /// <returns>店員's</returns>
-		IEnumerable<店員> 查詢店員(params string[] 分店編號);
+        // TODO : 離線
+		// IEnumerable<店員> 查詢店員(params string[] 分店編號);
 		
+        /// <summary>
+        /// 刪除該店所有店員
+        /// </summary>
+        /// <param name="分店編號">分店</param>
+        // TODO : 離線 
+        // void 刪除店員(params string[] 分店編號);
+
 		/// <summary>
         /// 新增店員		
         /// </summary>
-        /// <param name="店員">店員</param>             
-		void 新增店員(IEnumerable<店員> 店員);
+        /// <param name="店員">店員</param>    
+        // TODO : 離線
+        // void 新增店員(params 店員[] 店員);
     }
 }

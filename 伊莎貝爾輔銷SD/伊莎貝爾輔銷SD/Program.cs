@@ -17,7 +17,7 @@ namespace 伊莎貝爾輔銷SD
 
             var ml = new ModifiedList<興趣商品>(
                 list,
-                (collection, entity) => entity.修改 = true,
+                (entity) => entity.修改 = true,
                 (collection, entity) =>
                 {
                     if (string.IsNullOrEmpty(entity.編號))
@@ -30,7 +30,7 @@ namespace 伊莎貝爾輔銷SD
                     }
                 });
 
-            //ml.RemoveAt(1);
+            ml.RemoveAt(1);
 
             //ml.RemoveAt(2);
 

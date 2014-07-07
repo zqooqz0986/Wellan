@@ -29,18 +29,18 @@ namespace 伊莎貝爾輔銷SD
                         entity.停用 = true;
                     }
                 });
-           
+
             //ml.RemoveAt(1);
 
             //ml.RemoveAt(2);
 
-            ml[3].訂購 = true;
-
-            //ml.ModifyAt(3);
+            ml[3].數量 = 2;
+            ml[2].數量 = 2;
 
             ml.ForEach((x) => Console.WriteLine("商品編號:{0}, 停用:{1}, 修改:{2}", x.商品編號, x.停用, x.修改));
 
             Console.ReadKey();
         }
+
     }
 }

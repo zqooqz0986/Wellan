@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace 伊莎貝爾輔銷SD
 {
-    public class ModifiedList<TEntity> : List<TEntity> where TEntity : class
+    public class ModifiedList<TEntity> : List<TEntity> where TEntity : class, INotifyPropertyChanged
     {
         public ModifiedList(
             IEnumerable<TEntity> collection,
@@ -11,8 +13,21 @@ namespace 伊莎貝爾輔銷SD
             Action<List<TEntity>, TEntity> remover)
             : base(collection)
         {
-            this.Modifier = modifier;
+            this.Modifier = modifier;            
             this.Remover = remover;
+
+            var handler = new PropertyChangedEventHandler((sender, arg) => 
+            {
+                var entity = sender as TEntity;
+                if (entity != null)
+                {
+                    this.Modifier(this, entity);
+                }                
+            });
+
+            var list = collection.ToList();
+
+            list.ForEach((x)=> x.PropertyChanged += handler);
         }
 
         public Action<List<TEntity>, TEntity> Remover { get; set; }
@@ -22,11 +37,6 @@ namespace 伊莎貝爾輔銷SD
         public new void RemoveAt(int index)
         {
             this.Remover(this, this[index]);
-        }
-
-        public void ModifyAt(int index)
-        {
-            this.Modifier(this, this[index]);
         }
     }
 }

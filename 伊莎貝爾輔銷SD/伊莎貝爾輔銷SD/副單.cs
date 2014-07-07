@@ -1,67 +1,28 @@
 ﻿using DatabaseFoundation.Attribute;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace 伊莎貝爾輔銷SD
 {
     /// <summary>
-    /// 訂單 : RSRGA(主單), RSRGB(副單), RSRGC(副單明細)
+    /// RSRGB(副單)
     /// </summary>
-    public class 訂單
+    public class 副單
     {
-        #region RSRGA(主單)
+        /// <summary>
+        /// 副單編號
+        /// </summary>
+        [ColumnMapping("RBREN")]
+        public string 編號 { get; set; }
 
         /// <summary>
         /// 主單編號
         /// </summary>
         [ColumnMapping("RAREN")]
-        public string 編號 { get; set; }
-
-        /// <summary>
-        /// 訂單日期/接單日期
-        /// </summary>
-        [ColumnMapping("RADAY")]
-        public string 接單日期 { get; set; }
-
-        /// <summary>
-        /// 客戶編號(會員編號)
-        /// </summary>
-        [ColumnMapping("RANUM")]
-        public string 訂購客戶 { get; set; }
-
-        /// <summary>
-        /// 接單單位
-        /// </summary>
-        [ColumnMapping("RACNO")]
-        public string 接單單位 { get; set; }
-
-        /// <summary>
-        /// 開單日期
-        /// </summary>
-        [ColumnMapping("RADAT")]
-        public DateTime 開單日期 { get; set; }
-
-        /// <summary>
-        /// 負責業務員
-        /// </summary>
-        [ColumnMapping("RASAL")]
-        public string 負責業務員 { get; set; }
-
-        /// <summary>
-        /// 開單人員
-        /// </summary>
-        [ColumnMapping("RAMEN")]
-        public string 開單人員 { get; set; }
-
-        /// <summary>
-        /// 訂單類別(1:門市訂單2:經銷商訂單3:蛋特部訂單4:簡易訂單)
-        /// </summary>
-        [ColumnMapping("RACOS")]
-        public string 訂單類別 { get; set; }
-
-        #endregion RSRGA(主單)
-
-        #region RSRGB(副單)
+        public string 主單編號 { get; set; }
 
         /// <summary>
         /// 出貨單位
@@ -183,16 +144,9 @@ namespace 伊莎貝爾輔銷SD
         [ColumnMapping("RBISJ")]
         public string 理貨 { get; set; }
 
-        #endregion RSRGB(副單)
-
-        #region RSRGC(副單明細)
-
-        #endregion RSRGC(副單明細)
-
-        public decimal 收款金額 { get; set; }
-
-        public List<興趣商品> 訂購商品 { get; set; }
-
-        public 喜卡 喜卡資訊 { get; set; }
+        /// <summary>
+        /// 副單明細
+        /// </summary>
+        public List<副單明細> 副單明細 { get; set; }
     }
 }

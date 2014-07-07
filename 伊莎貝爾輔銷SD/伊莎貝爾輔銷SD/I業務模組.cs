@@ -24,6 +24,6 @@ namespace 伊莎貝爾輔銷SD
         /// 新增訂單
         /// </summary>
         /// <param name="訂單">訂單資訊</param>
-        void 新增訂單(params 訂單[] 訂單);
+        void 新增訂單(params 主單[] 訂單);
     }
 }

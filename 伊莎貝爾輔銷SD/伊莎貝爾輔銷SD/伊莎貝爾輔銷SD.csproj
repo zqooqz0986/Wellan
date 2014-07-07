@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModifiedList.cs" />
     <Compile Include="類別代碼.cs" />
     <Compile Include="I類別模組.cs" />
     <Compile Include="I分店模組.cs" />

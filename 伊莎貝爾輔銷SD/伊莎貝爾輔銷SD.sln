@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "伊莎貝爾輔銷SD", "伊莎貝爾輔銷SD\伊莎貝爾輔銷SD.csproj", "{1A70B515-A3B3-41F6-A4DF-68538E0EA9FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseFoundation", "..\..\inetpub\RD\DirectSaleBusinessIntelligence\DatabaseFoundation\DatabaseFoundation\DatabaseFoundation.csproj", "{57FC37B2-F45D-43C7-AD6A-095CBEEF4DFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1A70B515-A3B3-41F6-A4DF-68538E0EA9FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A70B515-A3B3-41F6-A4DF-68538E0EA9FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A70B515-A3B3-41F6-A4DF-68538E0EA9FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57FC37B2-F45D-43C7-AD6A-095CBEEF4DFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57FC37B2-F45D-43C7-AD6A-095CBEEF4DFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57FC37B2-F45D-43C7-AD6A-095CBEEF4DFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57FC37B2-F45D-43C7-AD6A-095CBEEF4DFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

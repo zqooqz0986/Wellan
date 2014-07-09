@@ -65,8 +65,6 @@ namespace 伊莎貝爾輔銷SD
         /// </summary>
         public List<副單> 副單資訊 { get; set; }
 
-        public decimal 收款金額 { get; set; }
-
         public 喜卡 喜卡資訊 { get; set; }
     }
 }

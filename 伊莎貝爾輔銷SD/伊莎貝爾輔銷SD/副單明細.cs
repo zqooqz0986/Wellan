@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace 伊莎貝爾輔銷SD
 {
+    /// <summary>
+    /// RSRGC(副單明細)
+    /// </summary>
     public class 副單明細
     {
         /// <summary>

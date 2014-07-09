@@ -42,13 +42,6 @@ namespace 伊莎貝爾輔銷SD
         /// </summary>
         /// <param name="品牌編號">限定品牌</param>
         /// <returns>商品排行榜</returns>       
-        IEnumerable<商品> 查詢排行榜(string 品牌編號);
-       
-        /// <summary>
-        /// 查詢商品促銷活動
-        /// </summary>
-        /// <param name="品牌編號">限定品牌</param>
-        /// <returns>促銷活動's</returns>     
-        IEnumerable<促銷活動> 查詢促銷活動(params string[] 品牌編號);
+        IEnumerable<商品> 查詢排行榜(string 品牌編號);       
     }
 }

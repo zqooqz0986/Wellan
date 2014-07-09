@@ -13,7 +13,7 @@ namespace 伊莎貝爾輔銷SD
     public class 副單
     {
         /// <summary>
-        /// 副單編號
+        /// 副單編號(Key)
         /// </summary>
         [ColumnMapping("RBREN")]
         public string 編號 { get; set; }

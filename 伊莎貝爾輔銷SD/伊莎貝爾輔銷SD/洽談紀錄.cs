@@ -11,24 +11,30 @@ namespace 伊莎貝爾輔銷SD
     /// </summary>
     public class 洽談紀錄
     {
+
         /// <summary>
-        /// 項次
+        /// 會員編號(Key)
+        /// </summary>
+        [ColumnMapping("BCNUM")]
+        public string 顧客編號 { get; set; }
+
+        /// <summary>
+        /// 項次(Key)
         /// </summary>
         [ColumnMapping("ItemNO")]
-        public string 編號 { get; set; }
-        public string 業務往來編號 { get; set; }
-        
+        public string 項次 { get; set; }
+
+        /// <summary>
+        /// 進度日期(Key)
+        /// </summary>
+        [ColumnMapping("DiscussionDate")]
+        public DateTime 進度日期 { get; set; }
+
         /// <summary>
         /// 目前進度
         /// </summary>
         [ColumnMapping("Result")]
         public string 目前進度 { get; set; }
-
-        /// <summary>
-        /// 進度日期
-        /// </summary>
-        [ColumnMapping("DiscussionDate")]
-        public DateTime 進度日期 { get; set; }
 
         /// <summary>
         /// 洽談時段(起)
@@ -61,8 +67,5 @@ namespace 伊莎貝爾輔銷SD
         /// </summary>
         [ColumnMapping("CreateMan")]
         public string 建檔人員 { get; set; }
-
-        public DateTime 修改日期 { get; set; }
-        public string 修改人員 { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace 伊莎貝爾輔銷SD
     public class 主單
     {
         /// <summary>
-        /// 主單編號
+        /// 主單編號(Key)
         /// </summary>
         [ColumnMapping("RAREN")]
         public string 編號 { get; set; }
@@ -63,7 +63,7 @@ namespace 伊莎貝爾輔銷SD
         /// <summary>
         /// 副單資訊
         /// </summary>
-        public 副單 副單資訊 { get; set; }
+        public List<副單> 副單資訊 { get; set; }
 
         public decimal 收款金額 { get; set; }
 

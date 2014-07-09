@@ -12,16 +12,16 @@ namespace 伊莎貝爾輔銷SD
     public class 業務往來
     {
         /// <summary>
-        /// 會員編號
+        /// 會員編號(Key)
         /// </summary>
         [ColumnMapping("BCNUM")]
-        public string 編號 { get; set; }
+        public string 顧客編號 { get; set; }
 
         /// <summary>
-        /// 項次
+        /// 項次(Key)
         /// </summary>
         [ColumnMapping("ItemNO")]
-        public string 顧客編號 { get; set; }
+        public string 項次 { get; set; }
 
         /// <summary>
         /// 洽談者角色
@@ -113,16 +113,22 @@ namespace 伊莎貝爾輔銷SD
         public string 訂購目的 { get; set; }
 
         public string 注意事項 { get; set; }
-        public List<洽談紀錄> 洽談紀錄 { get; set; }
-        public List<興趣商品> 購物車 { get; set; }
-
+        
         /// <summary>
         /// 建檔日期
         /// </summary>
         [ColumnMapping("NeedDate")]
         public DateTime 建檔日期 { get; set; }
-        public string 建檔人員 { get; set; }
-        public DateTime 修改日期 { get; set; }
-        public string 修改人員 { get; set; }
+        
+        /// <summary>
+        /// 洽談紀錄
+        /// </summary>
+        public List<洽談紀錄> 洽談紀錄 { get; set; }
+
+        /// <summary>
+        /// 購物車
+        /// </summary>
+        public List<興趣商品> 購物車 { get; set; }
+
     }
 }

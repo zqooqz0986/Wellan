@@ -10,13 +10,13 @@ namespace 伊莎貝爾輔銷SD
     public class 副單明細
     {
         /// <summary>
-        /// 項次
+        /// 項次(Key)
         /// </summary>
         [ColumnMapping("RCITM")]
-        public string 編號 { get; set; }
+        public string 項次 { get; set; }
 
         /// <summary>
-        /// 副單編號
+        /// 副單編號(Key)
         /// </summary>
         [ColumnMapping("RCREN")]
         public string 副單編號 { get; set; }

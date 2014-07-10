@@ -9,6 +9,14 @@ namespace 伊莎貝爾輔銷SD
     public interface I業務模組
     {
         /// <summary>
+        /// 查詢顧客(時間範圍內來客資訊)
+        /// </summary>
+        /// <param name="名字">顧客名字</param>
+        /// <param name="範圍">時間範圍</param>
+        /// <returns>顧客's</returns>
+        IEnumerable<顧客> 查詢顧客(string 名字, DateTime 範圍);
+
+        /// <summary>
         /// 更新購物車
         /// </summary>
         /// <param name="購物車清單">愈更新購物車清單</param>        

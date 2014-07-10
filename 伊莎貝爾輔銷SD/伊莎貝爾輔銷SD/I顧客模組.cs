@@ -18,14 +18,6 @@ namespace 伊莎貝爾輔銷SD
         IEnumerable<顧客> 查詢顧客(string 名字, string 市話, string 手機);
 
         /// <summary>
-        /// 查詢顧客(時間範圍內來客資訊)
-        /// </summary>
-        /// <param name="名字">顧客名字</param>
-        /// <param name="範圍">時間範圍</param>
-        /// <returns>顧客's</returns>
-        IEnumerable<顧客> 查詢顧客(string 名字, DateTime 範圍);
-
-        /// <summary>
         /// 更新顧客資訊(if 編號 is Empty 新增 else 更正), 範圍: 顧客資料, 業務往來
         /// </summary>
         /// <param name="顧客">顧客資料</param>

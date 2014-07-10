@@ -65,6 +65,16 @@ namespace 伊莎貝爾輔銷SD
         /// </summary>
         public List<副單> 副單資訊 { get; set; }
 
+        /// <summary>
+        /// 訂單圖檔
+        /// </summary>       
+        public byte[] 訂單圖檔 { get; set; }
+
+        /// <summary>
+        /// 喜卡圖檔
+        /// </summary>       
+        public byte[] 喜卡圖檔 { get; set; }
+
         public 喜卡 喜卡資訊 { get; set; }
     }
 }

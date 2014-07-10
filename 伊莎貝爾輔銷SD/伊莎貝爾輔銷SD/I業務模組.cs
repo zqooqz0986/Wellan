@@ -9,7 +9,7 @@ namespace 伊莎貝爾輔銷SD
     public interface I業務模組
     {
         /// <summary>
-        /// 查詢顧客(時間範圍內來客資訊)
+        /// 查詢顧客(洽談記錄.進度日期在時間範圍內的來客資訊)
         /// </summary>
         /// <param name="名字">顧客名字</param>
         /// <param name="範圍">時間範圍</param>

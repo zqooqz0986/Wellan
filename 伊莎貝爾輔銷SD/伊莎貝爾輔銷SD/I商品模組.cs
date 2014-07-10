@@ -31,11 +31,10 @@ namespace 伊莎貝爾輔銷SD
 
         /// <summary>
         /// 查詢新的商品(最新旗標=true)
-        /// </summary>
-        /// <param name="時間區間">查詢的時間區間</param>
+        /// </summary>        
         /// <param name="品牌編號">限定品牌</param>
         /// <returns>商品's</returns>
-        IEnumerable<商品> 查詢新商品(TimeSpan 時間區間, params string[] 品牌編號);
+        IEnumerable<商品> 查詢新商品(params string[] 品牌編號);
 
         /// <summary>
         /// 查詢商品排行榜(排行旗標=true)

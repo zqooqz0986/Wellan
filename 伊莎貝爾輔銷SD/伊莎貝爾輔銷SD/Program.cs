@@ -1,11 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Drawing;
+using System.IO.Compression;
 namespace 伊莎貝爾輔銷SD
 {
-    internal class Program
+    public class Program
     {
         private static void Main(string[] args)
+        {         
+            // Create image.
+            //Image newImage = Image.FromFile("Wallpaper_NationalPark800x600.jpg");
+            //newImage.
+            //// Create Point for upper-left corner of image.
+            //Point ulCorner = new Point(100, 100);
+
+            //// Draw image to screen.
+
+            //ZipFile.CreateFromDirectory(startPath, zipPath);
+
+            //ZipFile.ExtractToDirectory(zipPath, extractPath);
+
+        }
+
+        private static void TestModifiedList()
         {
             var list = new List<興趣商品>()
             {

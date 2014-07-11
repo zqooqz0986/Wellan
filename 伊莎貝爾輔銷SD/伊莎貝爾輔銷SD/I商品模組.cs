@@ -9,7 +9,8 @@ namespace 伊莎貝爾輔銷SD
     public interface I商品模組
     {
 		/// <summary>
-        /// 查詢區間內要維護的商品資訊
+        /// 查詢區間內要維護的商品資訊[含區間停用的商品] 
+        /// (if 區間==null 查詢所有[非停用]資料)
         /// </summary>         
 		/// <param name="區間">時間區間</param>		
         /// <returns>維護商品's</returns>

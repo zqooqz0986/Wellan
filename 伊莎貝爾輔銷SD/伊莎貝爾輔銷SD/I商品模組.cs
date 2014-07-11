@@ -11,11 +11,15 @@ namespace 伊莎貝爾輔銷SD
 		/// <summary>
         /// 查詢區間內要維護的商品資訊[含區間停用的商品] 
         /// (if 區間==null 查詢所有[非停用]資料)
+        /// 停用: 下架日期[BSDT5], 停用日期[BSDT6]
+        /// 修改時間: 修改日[EDDAT]       
         /// </summary>         
 		/// <param name="區間">時間區間</param>		
-        /// <returns>維護商品's</returns>
+        /// <returns>維護商品's</returns>        
 		IEnumerable<商品> 查詢維護商品(TimeSpan 區間);
-		
+        // TODO : 志冠 共同平台程式,將此資訊填回EDDAT
+        // TODO : 士雅 商品圖檔需request圖檔站台，1. 由pad request 2. 由API request
+
 		/// <summary>
         /// 更新商品
         /// </summary>     

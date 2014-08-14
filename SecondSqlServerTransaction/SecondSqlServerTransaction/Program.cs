@@ -27,13 +27,19 @@ namespace SecondSqlServerTransaction
                 {
                     //var result = Select(Table1, "1");
 
-                    Update(Table1, "1", "name1-Modified");
-
                     //Insert(Table1, "1", "name1");
+
+                    //Update(Table1, "1", "name1-Modified");
 
                     //Delete(Table1, "1");
 
-                    Update(Table1, "2", "name2-Modified");
+                    //var result = Select(Table1, "2");
+
+                    //Insert(Table1, "2", "name2");
+
+                    //Update(Table1, "2", "name2-Modified4");
+
+                    //Delete(Table1, "2");
 
                     transaction.Commit();
                 }

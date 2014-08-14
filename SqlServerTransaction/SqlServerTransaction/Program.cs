@@ -24,15 +24,21 @@ namespace SqlServerTransaction
             using (var connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                using (transaction = connection.BeginTransaction(IsolationLevel.ReadCommitted))
+                using (transaction = connection.BeginTransaction(IsolationLevel.RepeatableRead))
                 {
                     //var result = Select(Table1);
 
                     //var result = Select(Table1, "1");
 
-                    var result = SelectName(Table1, "name1");
+                    //var result = SelectName(Table1, "name1");
 
                     //var result = Count(Table1, "3");
+
+                    //var result = Count(Table1);
+
+                    //var result = Max(Table1);
+
+                    //var result = Max(Table1, 1, null);
 
                     transaction.Commit();
                 }
@@ -106,6 +112,46 @@ namespace SqlServerTransaction
             command.Transaction = transaction;
 
             return Convert.ToInt32(command.ExecuteScalar());
+        }
+
+        private static int Max(string table, string id)
+        {
+            var command = transaction.Connection.CreateCommand();
+
+            if (string.IsNullOrEmpty(id))
+            {
+                command.CommandText = string.Format(@"SELECT Max(id) FROM {0} ", table);
+            }
+            else
+            {
+                command.CommandText = string.Format(@"SELECT Max(id) FROM {0} WHERE id = @p_id ", table);
+                command.Parameters.Add(new SqlParameter("@p_id", id));
+            }
+
+            command.Transaction = transaction;
+
+            return Convert.ToInt32(command.ExecuteScalar());
+        }
+
+        private static int Max(string table, int length, string id)
+        {
+            var command = transaction.Connection.CreateCommand();
+
+            if (string.IsNullOrEmpty(id))
+            {
+                command.CommandText = string.Format(@"SELECT Max(id) FROM {0} WHERE Len(id) = @p_length ", table);
+            }
+            else
+            {
+                command.CommandText = string.Format(@"SELECT Max(id) FROM {0} WHERE id = @p_id AND Len(id) = @p_length", table);
+                command.Parameters.Add(new SqlParameter("@p_id", id));
+            }
+
+            command.Parameters.Add(new SqlParameter("@p_length", length));
+
+            command.Transaction = transaction;
+
+            return Convert.ToInt32(command.ExecuteScalar() == DBNull.Value ? null : command.ExecuteScalar());
         }
     }
 }

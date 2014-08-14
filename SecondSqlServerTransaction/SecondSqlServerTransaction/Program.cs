@@ -23,13 +23,11 @@ namespace SecondSqlServerTransaction
             using (var connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                using (transaction = connection.BeginTransaction(IsolationLevel.ReadCommitted))
+                using (transaction = connection.BeginTransaction(IsolationLevel.RepeatableRead))
                 {
                     //var result = Select(Table1, "1");
 
                     //Insert(Table1, "1", "name1");
-
-                    //Update(Table1, "1", "name1-Modified");
 
                     //Delete(Table1, "1");
 
@@ -40,6 +38,22 @@ namespace SecondSqlServerTransaction
                     //Update(Table1, "2", "name2-Modified4");
 
                     //Delete(Table1, "2");
+
+                    //var result = Select(Table1, "3");
+
+                    //Insert(Table1, "3", "name4");
+
+                    //Update(Table1, "3", "name2-Modified4");
+
+                    //Delete(Table1, "3");
+
+                    //Insert(Table1, "4", "name1");
+
+                    //Delete(Table1, "4");
+
+                    //Insert(Table1, "5", "name13");
+
+                    //Update(Table1, "11", "name1-Modified14");
 
                     transaction.Commit();
                 }

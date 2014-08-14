@@ -24,7 +24,7 @@ namespace SqlServerTransaction
             using (var connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                using (transaction = connection.BeginTransaction(IsolationLevel.RepeatableRead))
+                using (transaction = connection.BeginTransaction(IsolationLevel.ReadCommitted))
                 {
                     //var result = Select(Table1);
 

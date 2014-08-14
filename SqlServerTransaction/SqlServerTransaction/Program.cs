@@ -26,22 +26,32 @@ namespace SqlServerTransaction
                 connection.Open();
                 using (transaction = connection.BeginTransaction(IsolationLevel.ReadCommitted))
                 {
-                    var result = Select(Table1, "1");
+                    //var result = Select(Table1);
 
-                    //var result = Select(Table1, "2");
+                    //var result = Select(Table1, "1");
+
+                    var result = SelectName(Table1, "name1");
+
+                    //var result = Count(Table1, "3");
 
                     transaction.Commit();
                 }
             }
         }
 
-        private static DataTable Select(string table, string id)
+        private static DataTable Select(string table, string id = null)
         {
             var command = transaction.Connection.CreateCommand();
 
-            command.CommandText = string.Format(@"SELECT * FROM {0} WHERE id = @p_id ", table);
-
-            command.Parameters.Add(new SqlParameter("@p_id", id));
+            if (string.IsNullOrEmpty(id))
+            {
+                command.CommandText = string.Format(@"SELECT * FROM {0}", table);
+            }
+            else
+            {
+                command.CommandText = string.Format(@"SELECT * FROM {0} WHERE id = @p_id ", table);
+                command.Parameters.Add(new SqlParameter("@p_id", id));
+            }
 
             command.Transaction = transaction;
 
@@ -52,6 +62,50 @@ namespace SqlServerTransaction
             adapter.Fill(datatable);
 
             return datatable;
+        }
+
+        private static DataTable SelectName(string table, string name = null)
+        {
+            var command = transaction.Connection.CreateCommand();
+
+            if (string.IsNullOrEmpty(name))
+            {
+                command.CommandText = string.Format(@"SELECT * FROM {0}", table);
+            }
+            else
+            {
+                command.CommandText = string.Format(@"SELECT * FROM {0} WHERE name = @p_name ", table);
+                command.Parameters.Add(new SqlParameter("@p_name", name));
+            }
+
+            command.Transaction = transaction;
+
+            var datatable = new DataTable();
+
+            var adapter = new SqlDataAdapter(command);
+
+            adapter.Fill(datatable);
+
+            return datatable;
+        }
+
+        private static int Count(string table, string id = null)
+        {
+            var command = transaction.Connection.CreateCommand();
+
+            if (string.IsNullOrEmpty(id))
+            {
+                command.CommandText = string.Format(@"SELECT Count(*) FROM {0}", table);
+            }
+            else
+            {
+                command.CommandText = string.Format(@"SELECT Count(*) FROM {0} WHERE id = @p_id ", table);
+                command.Parameters.Add(new SqlParameter("@p_id", id));
+            }
+
+            command.Transaction = transaction;
+
+            return Convert.ToInt32(command.ExecuteScalar());
         }
     }
 }

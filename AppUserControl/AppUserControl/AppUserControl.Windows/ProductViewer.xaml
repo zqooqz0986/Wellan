@@ -9,7 +9,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" Width="300">
+    <Grid Name="grid" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" Width="300">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300" />
         </Grid.ColumnDefinitions>
@@ -20,9 +20,11 @@
         </Grid.RowDefinitions>
         <Image Source="Assets/bg_box1_S.png" Grid.Row="0" Grid.Column="0" Stretch="None" />
         <Image Source="Assets/btn_product_info_divider.png" Grid.Row="1" Grid.Column="0" Stretch="None" />
-        <ListView Grid.Row="2" Grid.Column="0" Foreground="Black">
-            <ListViewItem Width="300" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">價錢:100萬</ListViewItem>
-            <ListViewItem Width="300" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">內容:無敵海景佛跳牆</ListViewItem>
-        </ListView>
+        <ItemsControl Name="content" Grid.Row="2" Grid.Column="0" Foreground="Black">
+            <TextBlock Text="{Binding Name}" Visibility="{Binding ShowedName}" ></TextBlock>
+            <TextBlock Text="{Binding Amount}" Visibility="{Binding ShowedAmount}" ></TextBlock>
+            <TextBlock Text="{Binding Price}" Visibility="{Binding ShowedPrice}" ></TextBlock>
+            <TextBlock Text="{Binding Weight}" Visibility="{Binding ShowedWeight}" ></TextBlock>
+        </ItemsControl>
     </Grid>
 </UserControl>

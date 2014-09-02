@@ -25,6 +25,16 @@ namespace AppUserControl
         public MainPage()
         {
             this.InitializeComponent();
+            var products = new List<ProductViewer>()
+                {
+                    new ProductViewer() { DataContext = new ProductInfo() { Name = "P1", Amount = 10, Price = 20, Weight = 100, ShowedName = Visibility.Collapsed  } },
+                    new ProductViewer() { DataContext = new ProductInfo() { Name = "P2", Amount = 10, Price = 20, Weight = 100, ShowedName = Visibility.Collapsed  } },
+                    new ProductViewer() { DataContext = new ProductInfo() { Name = "P3", Amount = 10, Price = 20, Weight = 100, ShowedName = Visibility.Collapsed  } },
+                    new ProductViewer() { DataContext = new ProductInfo() { Name = "P4", Amount = 10, Price = 20, Weight = 100, ShowedName = Visibility.Collapsed  } },
+                    new ProductViewer() { DataContext = new ProductInfo() { Name = "P5", Amount = 10, Price = 20, Weight = 100, ShowedName = Visibility.Collapsed  } },
+                    new ProductViewer() { DataContext = new ProductInfo() { Name = "P6", Amount = 10, Price = 20, Weight = 100, ShowedName = Visibility.Collapsed  } },
+                };
+            this.ProductGrid.ItemsSource = products;
         }
     }
 }

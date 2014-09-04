@@ -6,6 +6,40 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:usercontrolnamespace="using:AppUserControl"
-    mc:Ignorable="d">
-    <GridView Name="ProductGrid" Width="Auto" Height="Auto" Background="White" ItemsSource="{Binding}" ></GridView>
+    mc:Ignorable="d"
+>
+    <!--<Grid Background="White">
+        <TextBlock Name="Test" Width="200" Height="100" Text="{Binding Name}" DataContext="{Binding}" Foreground="Black" FontSize="72" ></TextBlock>
+    </Grid>-->
+
+    <GridView Name="ProductGrid" Width="Auto" Height="Auto" Background="White">
+        <usercontrolnamespace:ProductViewer x:Name="Test"
+            ProductName ="{Binding pName}"
+            Brand="{Binding Brand}"
+            ProductHeight="{Binding pHeight}"
+            ProductLength="{Binding pLength}"
+            ProductWidth="{Binding pWidth}"
+            Amount="{Binding Amount}"
+            FixedPrice="{Binding FixedPrice}"
+            SoldPrice="{Binding SoldPrice}"
+            Kind="{Binding Kind}"
+            ActionDescriptions="{Binding ActionDescriptions}"
+            GiftPoint="{Binding GiftPoint}"
+            ContentAmount="{Binding ContentAmount}">
+        </usercontrolnamespace:ProductViewer>
+        <!--<usercontrolnamespace:ProductViewer x:Name="Test"
+            ProductName ="{Binding pName}"
+            Brand="{Binding Brand}"
+            ProductHeight="{Binding pHeight}"
+            ProductLength="{Binding pLength}"
+            ProductWidth="{Binding pWidth}"
+            AmountTextVisibility="Collapsed"
+            FixedPriceTextVisibility="Collapsed"
+            SoldPriceTextVisibility="Collapsed"
+            ActionDescriptionsTextVisibility="Collapsed"
+            GiftPointTextVisibility="Collapsed"
+            ContentAmountVisibility="Collapsed"
+            DropVisibility="Collapsed">
+        </usercontrolnamespace:ProductViewer>-->
+    </GridView>
 </Page>

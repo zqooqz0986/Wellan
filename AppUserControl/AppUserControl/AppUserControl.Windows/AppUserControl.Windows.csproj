@@ -106,10 +106,14 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\NavigationHelper.cs" />
+    <Compile Include="Common\ObservableDictionary.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProductInfo.cs" />
+    <Compile Include="ProductKind.cs" />
     <Compile Include="ProductViewer.xaml.cs">
       <DependentUpon>ProductViewer.xaml</DependentUpon>
     </Compile>
@@ -123,6 +127,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\bg_box1_S.png" />
+    <Content Include="Assets\btn_droplist_rest.png" />
+    <Content Include="Assets\btn_product_info_01.png" />
     <Content Include="Assets\btn_product_info_divider.png" />
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppUserControl.Common;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,6 +7,9 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
+
+using Windows.UI.Xaml;
+
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
@@ -22,19 +26,123 @@ namespace AppUserControl
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private NavigationHelper navigationHelper;
+        private ObservableDictionary defaultViewModel = new ObservableDictionary();
+
+        /// <summary>
+        /// 此項可能變更為強類型檢視模型。
+        /// </summary>
+        public ObservableDictionary DefaultViewModel
+        {
+            get { return this.defaultViewModel; }
+        }
+
+        /// <summary>
+        /// NavigationHelper 是用在每個頁面上協助巡覽及
+        /// 處理程序生命週期管理
+        /// </summary>
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
+        }
+
         public MainPage()
         {
             this.InitializeComponent();
-            var products = new List<ProductViewer>()
-                {
-                    new ProductViewer() { DataContext = new ProductInfo() { Name = "P1", Amount = 10, Price = 20, Weight = 100, ShowedName = Visibility.Collapsed  } },
-                    new ProductViewer() { DataContext = new ProductInfo() { Name = "P2", Amount = 10, Price = 20, Weight = 100, ShowedName = Visibility.Collapsed  } },
-                    new ProductViewer() { DataContext = new ProductInfo() { Name = "P3", Amount = 10, Price = 20, Weight = 100, ShowedName = Visibility.Collapsed  } },
-                    new ProductViewer() { DataContext = new ProductInfo() { Name = "P4", Amount = 10, Price = 20, Weight = 100, ShowedName = Visibility.Collapsed  } },
-                    new ProductViewer() { DataContext = new ProductInfo() { Name = "P5", Amount = 10, Price = 20, Weight = 100, ShowedName = Visibility.Collapsed  } },
-                    new ProductViewer() { DataContext = new ProductInfo() { Name = "P6", Amount = 10, Price = 20, Weight = 100, ShowedName = Visibility.Collapsed  } },
-                };
-            this.ProductGrid.ItemsSource = products;
+            this.navigationHelper = new NavigationHelper(this);
+            this.navigationHelper.LoadState += navigationHelper_LoadState;
+            this.navigationHelper.SaveState += navigationHelper_SaveState;
+            //var products = new List<ProductViewer>()
+            //    {
+            //        new ProductViewer() { AmountTextVisibility = Visibility.Collapsed, FixedPriceTextVisibility = Visibility.Collapsed, SoldPriceTextVisibility = Visibility.Collapsed, ActionDescriptionTextVisibility = Visibility.Collapsed, GiftPointTextVisibility = Visibility.Collapsed, ContentAmountVisibility = Visibility.Collapsed, ProductName = "P12", Amount = 10, FixedPrice = 20, SoldPrice = 100, Brand = "伊莎貝爾", ProductWidth = 100, ProductHeight = 21, ProductLength = 78, Kind = ProductKind.West, ActionDescription = new List<string> { "買100送1", "買100送2", "買100送3", "買100送4", "買100送5" } } ,
+            //        new ProductViewer() { ProductName = "P12", Amount = 10, FixedPrice = 20, SoldPrice = 100, Brand = "伊莎貝爾", ProductWidth = 100, ProductHeight = 21, ProductLength = 78, Kind = ProductKind.West, ActionDescription = new List<string> { "買100送1", "買100送2", "買100送3", "買100送4", "買100送5" } } ,
+            //        new ProductViewer() { ProductName = "P12", Amount = 10, FixedPrice = 20, SoldPrice = 100, Brand = "伊莎貝爾", ProductWidth = 100, ProductHeight = 21, ProductLength = 78, Kind = ProductKind.West, ActionDescription = new List<string> { "買100送1", "買100送2", "買100送3", "買100送4", "買100送5" } } ,
+            //        new ProductViewer() { ProductName = "P12", Amount = 10, FixedPrice = 20, SoldPrice = 100, Brand = "伊莎貝爾", ProductWidth = 100, ProductHeight = 21, ProductLength = 78, Kind = ProductKind.West, ActionDescription = new List<string> { "買100送1", "買100送2", "買100送3", "買100送4", "買100送5" } } ,
+            //        new ProductViewer() { ProductName = "P12", Amount = 10, FixedPrice = 20, SoldPrice = 100, Brand = "伊莎貝爾", ProductWidth = 100, ProductHeight = 21, ProductLength = 78, Kind = ProductKind.West, ActionDescription = new List<string> { "買100送1", "買100送2", "買100送3", "買100送4", "買100送5" } } ,
+            //        new ProductViewer() { ProductName = "P12", Amount = 10, FixedPrice = 20, SoldPrice = 100, Brand = "伊莎貝爾", ProductWidth = 100, ProductHeight = 21, ProductLength = 78, Kind = ProductKind.West, ActionDescription = new List<string> { "買100送1", "買100送2", "買100送3", "買100送4", "買100送5" } } ,
+            //    };
+            //this.ProductGrid.ItemsSource = products;
         }
+
+        /// <summary>
+        /// 巡覽期間以傳遞的內容填入頁面。從之前的工作階段
+        /// 重新建立頁面時，也會提供儲存的狀態。
+        /// </summary>
+        /// <param name="sender">
+        /// 事件之來源；通常是<see cref="NavigationHelper"/>
+        /// </param>
+        /// <param name="e">提供傳遞出去之巡覽參數之事件資料
+        /// <see cref="Frame.Navigate(Type, Object)"/> 初始要求本頁面時及
+        /// 這個頁面在先前的工作階段期間保留的狀態字典
+        /// 工作階段。第一次瀏覽頁面時，狀態是 null。</param>
+        private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        {
+            var product = new ProductInfo() { pName = "P12", Amount = 10, FixedPrice = 20, SoldPrice = 100, Brand = "伊莎貝爾", pWidth = 100, pHeight = 21, pLength = 78, Kind = ProductKind.West, ActionDescriptions = new List<string> { "買100送1" }, GiftPoint = 12, ContentAmount = 8 };
+            // , "買100送2", "買100送3", "買100送4", "買100送5"
+
+            this.Test.DataContext = product;
+        }
+
+        /// <summary>
+        /// 在應用程式暫停或從巡覽快取中捨棄頁面時，
+        /// 保留與這個頁面關聯的狀態。值必須符合
+        /// <see cref="SuspensionManager.SessionState"/> 的序列化需求。
+        /// </summary>
+        /// <param name="sender">事件之來源；通常是<see cref="NavigationHelper"/></param>
+        /// <param name="e">事件資料，此資料提供即將以可序列化狀態填入的空白字典
+        ///。</param>
+        private void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+        }
+
+        #region NavigationHelper 註冊
+
+        /// 本區段中提供的方法只用來允許
+        /// NavigationHelper 可回應頁面的巡覽方法。
+        ///
+        /// 頁面專屬邏輯應該放在事件處理常式中
+        /// <see cref="GridCS.Common.NavigationHelper.LoadState"/>
+        /// 和 <see cref="GridCS.Common.NavigationHelper.SaveState"/>。
+        /// 巡覽參數可用於 LoadState 方法
+        /// 除了先前的工作階段期間保留的頁面狀態。
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            navigationHelper.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            navigationHelper.OnNavigatedFrom(e);
+        }
+
+        #endregion NavigationHelper 註冊
+    }
+
+    public class ProductInfo
+    {
+        public string pName { get; set; }
+
+        public int Amount { get; set; }
+
+        public string Brand { get; set; }
+
+        public float pWidth { get; set; }
+
+        public float pHeight { get; set; }
+
+        public float pLength { get; set; }
+
+        public decimal FixedPrice { get; set; }
+
+        public decimal SoldPrice { get; set; }
+
+        public List<string> ActionDescriptions { get; set; }
+
+        public int GiftPoint { get; set; }
+
+        public int ContentAmount { get; set; }
+
+        public ProductKind Kind { get; set; }
     }
 }

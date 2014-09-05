@@ -10,8 +10,9 @@
 
     <Grid Width="280" Height="523">
         <Grid.Background>
-            <ImageBrush ImageSource="Assets/btn_product_info_01.png" Stretch="None" />
+            <ImageBrush Stretch="None" ImageSource="ms-appx:///Assets/btn_product_info_01.png" />
         </Grid.Background>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
@@ -23,7 +24,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding ProductName, ElementName=Self}" Foreground="Black" FontSize="18" FontFamily="Microsoft JhengHei" TextAlignment="Center" VerticalAlignment="Bottom" Margin="0,25,0,14" ></TextBlock>
-        <Image Source="Assets/btn_product_info_divider.png" Grid.Row="2" Grid.Column="0" Stretch="None" />
+        <Image Source="ms-appx:///Assets/btn_product_info_divider.png" Grid.Row="2" Grid.Column="0" Stretch="None" />
         <ItemsControl Name="content" Grid.Row="3" Grid.Column="0">
             <ItemsControl.Resources>
                 <Style x:Key="ItemStyle" TargetType="TextBlock">
@@ -55,7 +56,7 @@
         </ItemsControl>
         <Button Width="90" Height="32" Name="Drop" Grid.Row="4" Grid.Column="0" Content="刪除項目" HorizontalAlignment="Center" BorderThickness="0">
             <Button.Background>
-                <ImageBrush Stretch="None" ImageSource="Assets/btn_droplist_rest.png" />
+                <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/btn_droplist_rest.png" />
             </Button.Background>
         </Button>
     </Grid>

@@ -1,4 +1,5 @@
 ﻿using AppUserControl.Common;
+using AppUserControl.RadioButtonList;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -81,7 +82,28 @@ namespace AppUserControl
             // , "買100送2", "買100送3", "買100送4", "買100送5"
 
             this.Test.DataContext = product;
+
+            this.BrandButtonList.DataSource = new List<CodeTypeInfo>()
+                {
+                    new CodeTypeInfo() { CodeType = "brand" ,CodeId = "I1", CodeName = "伊莎貝爾"},
+                    new CodeTypeInfo() { CodeType = "brand" ,CodeId = "I2", CodeName = "湖樓"},
+                    new CodeTypeInfo() { CodeType = "brand" ,CodeId = "I3", CodeName = "阿哩阿災"},
+                };
+            this.BagButtonList.DataSource = new List<CodeTypeInfo>()
+                {
+                    new CodeTypeInfo() { CodeType = "bag" ,CodeId = "Y1", CodeName = "有提袋"},
+                    new CodeTypeInfo() { CodeType = "bag" ,CodeId = "Y2", CodeName = "沒有提袋"},
+                };
         }
+
+        //private List<CodeTypeInfo> codeTypes = new List<CodeTypeInfo>()
+        //        {
+        //            new CodeTypeInfo() { CodeType = "brand" ,CodeId = "I1", CodeName = "伊莎貝爾"},
+        //            new CodeTypeInfo() { CodeType = "brand" ,CodeId = "I2", CodeName = "湖樓"},
+        //            new CodeTypeInfo() { CodeType = "brand" ,CodeId = "I3", CodeName = "阿哩阿災"},
+        //            //new CodeTypeInfo() { CodeType = "bag" ,CodeId = "Y1", CodeName = "有提袋"},
+        //            //new CodeTypeInfo() { CodeType = "bag" ,CodeId = "Y1", CodeName = "沒有提袋"},
+        //        };
 
         /// <summary>
         /// 在應用程式暫停或從巡覽快取中捨棄頁面時，
@@ -117,6 +139,14 @@ namespace AppUserControl
         }
 
         #endregion NavigationHelper 註冊
+
+        private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            var a = this.BagButtonList.Result;
+            var b = this.BrandButtonList.Result;
+
+            this.BrandButtonList.Result = "I1";
+        }
     }
 
     public class ProductInfo

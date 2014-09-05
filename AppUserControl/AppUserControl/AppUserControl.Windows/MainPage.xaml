@@ -9,9 +9,10 @@
     xmlns:usercontrolnamespaceRadionButtonList="using:AppUserControl.RadioButtonList"
     mc:Ignorable="d"
 >
-    <StackPanel>
-        <GridView Name="ProductGrid" Width="Auto" Height="Auto" Background="White">
-            <usercontrolnamespace:ProductViewer x:Name="Test"
+    <ScrollViewer VerticalScrollMode="Auto">
+        <StackPanel>
+            <GridView Name="ProductGrid" Width="Auto" Height="Auto" Background="White">
+                <usercontrolnamespace:ProductViewer x:Name="Test"
             ProductName ="{Binding pName}"
             Brand="{Binding Brand}"
             ProductHeight="{Binding pHeight}"
@@ -24,8 +25,8 @@
             ActionDescriptions="{Binding ActionDescriptions}"
             GiftPoint="{Binding GiftPoint}"
             ContentAmount="{Binding ContentAmount}">
-            </usercontrolnamespace:ProductViewer>
-            <!--<usercontrolnamespace:ProductViewer x:Name="Test"
+                </usercontrolnamespace:ProductViewer>
+                <!--<usercontrolnamespace:ProductViewer x:Name="Test"
             ProductName ="{Binding pName}"
             Brand="{Binding Brand}"
             ProductHeight="{Binding pHeight}"
@@ -39,7 +40,10 @@
             ContentAmountVisibility="Collapsed"
             DropVisibility="Collapsed">
         </usercontrolnamespace:ProductViewer>-->
-        </GridView>
-        <usercontrolnamespaceRadionButtonList:RadioButtonList></usercontrolnamespaceRadionButtonList:RadioButtonList>
-    </StackPanel>
+            </GridView>
+            <usercontrolnamespaceRadionButtonList:RadioButtonList x:Name="BrandButtonList"></usercontrolnamespaceRadionButtonList:RadioButtonList>
+            <usercontrolnamespaceRadionButtonList:RadioButtonList x:Name="BagButtonList"></usercontrolnamespaceRadionButtonList:RadioButtonList>
+            <Button Click="Button_Click">確認</Button>
+        </StackPanel>
+    </ScrollViewer>
 </Page>

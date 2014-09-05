@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\NavigationHelper.cs" />
+    <Compile Include="Common\NotifyPropertyChanged.cs" />
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
@@ -118,6 +119,7 @@
       <DependentUpon>ProductViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RadioButtonList\CodeTypeInfo.cs" />
     <Compile Include="RadioButtonList\RadioButtonList.xaml.cs">
       <DependentUpon>RadioButtonList.xaml</DependentUpon>
     </Compile>

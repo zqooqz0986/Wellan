@@ -113,8 +113,8 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProductKind.cs" />
-    <Compile Include="ProductViewer.xaml.cs">
+    <Compile Include="ProductViewer\ProductKind.cs" />
+    <Compile Include="ProductViewer\ProductViewer.xaml.cs">
       <DependentUpon>ProductViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -140,7 +140,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ProductViewer.xaml">
+    <Page Include="ProductViewer\ProductViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

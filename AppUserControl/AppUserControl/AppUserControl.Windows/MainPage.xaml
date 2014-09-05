@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:usercontrolnamespace="using:AppUserControl"
+    xmlns:usercontrolnamespaceRadionButtonList="using:AppUserControl.RadioButtonList"
     mc:Ignorable="d"
 >
     <StackPanel>
@@ -39,5 +40,6 @@
             DropVisibility="Collapsed">
         </usercontrolnamespace:ProductViewer>-->
         </GridView>
+        <usercontrolnamespaceRadionButtonList:RadioButtonList></usercontrolnamespaceRadionButtonList:RadioButtonList>
     </StackPanel>
 </Page>

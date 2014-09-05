@@ -8,12 +8,9 @@
     xmlns:usercontrolnamespace="using:AppUserControl"
     mc:Ignorable="d"
 >
-    <!--<Grid Background="White">
-        <TextBlock Name="Test" Width="200" Height="100" Text="{Binding Name}" DataContext="{Binding}" Foreground="Black" FontSize="72" ></TextBlock>
-    </Grid>-->
-
-    <GridView Name="ProductGrid" Width="Auto" Height="Auto" Background="White">
-        <usercontrolnamespace:ProductViewer x:Name="Test"
+    <StackPanel>
+        <GridView Name="ProductGrid" Width="Auto" Height="Auto" Background="White">
+            <usercontrolnamespace:ProductViewer x:Name="Test"
             ProductName ="{Binding pName}"
             Brand="{Binding Brand}"
             ProductHeight="{Binding pHeight}"
@@ -26,8 +23,8 @@
             ActionDescriptions="{Binding ActionDescriptions}"
             GiftPoint="{Binding GiftPoint}"
             ContentAmount="{Binding ContentAmount}">
-        </usercontrolnamespace:ProductViewer>
-        <!--<usercontrolnamespace:ProductViewer x:Name="Test"
+            </usercontrolnamespace:ProductViewer>
+            <!--<usercontrolnamespace:ProductViewer x:Name="Test"
             ProductName ="{Binding pName}"
             Brand="{Binding Brand}"
             ProductHeight="{Binding pHeight}"
@@ -41,5 +38,6 @@
             ContentAmountVisibility="Collapsed"
             DropVisibility="Collapsed">
         </usercontrolnamespace:ProductViewer>-->
-    </GridView>
+        </GridView>
+    </StackPanel>
 </Page>

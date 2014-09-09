@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppUserControl.RadioButtonList
 {
-    public class CodeTypeInfo : NotifyPropertyChanged
+    public class RadioButtonListViewModel : NotifyPropertyChanged
     {
         private bool selected;
 
@@ -21,38 +21,26 @@ namespace AppUserControl.RadioButtonList
             }
         }
 
-        private string codeType;
+        private string value;
 
-        public string CodeType
+        public string Value
         {
-            get { return this.codeType; }
+            get { return this.value; }
             set
             {
-                this.codeType = value;
+                this.value = value;
                 OnPropertyChanged();
             }
         }
 
-        private string codeId;
+        private string text;
 
-        public string CodeId
+        public string Text
         {
-            get { return this.codeId; }
+            get { return this.text; }
             set
             {
-                this.codeId = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string codeName;
-
-        public string CodeName
-        {
-            get { return this.codeName; }
-            set
-            {
-                this.codeName = value;
+                this.text = value;
                 OnPropertyChanged();
             }
         }

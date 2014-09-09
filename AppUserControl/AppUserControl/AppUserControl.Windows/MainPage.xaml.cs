@@ -83,16 +83,18 @@ namespace AppUserControl
 
             this.Test.DataContext = product;
 
-            this.BrandButtonList.DataSource = new List<CodeTypeInfo>()
+            this.BrandButtonList.Group = "brand";
+            this.BrandButtonList.DataSource = new List<RadioButtonListViewModel>()
                 {
-                    new CodeTypeInfo() { CodeType = "brand" ,CodeId = "I1", CodeName = "伊莎貝爾"},
-                    new CodeTypeInfo() { CodeType = "brand" ,CodeId = "I2", CodeName = "湖樓"},
-                    new CodeTypeInfo() { CodeType = "brand" ,CodeId = "I3", CodeName = "阿哩阿災"},
+                    new RadioButtonListViewModel() { Value = "I1", Text = "伊莎貝爾"},
+                    new RadioButtonListViewModel() { Value = "I2", Text = "湖樓"},
+                    new RadioButtonListViewModel() { Value = "I3", Text = "阿哩阿災"},
                 };
-            this.BagButtonList.DataSource = new List<CodeTypeInfo>()
+            this.BagButtonList.Group = "bag";
+            this.BagButtonList.DataSource = new List<RadioButtonListViewModel>()
                 {
-                    new CodeTypeInfo() { CodeType = "bag" ,CodeId = "Y1", CodeName = "有提袋"},
-                    new CodeTypeInfo() { CodeType = "bag" ,CodeId = "Y2", CodeName = "沒有提袋"},
+                    new RadioButtonListViewModel() { Value = "Y1", Text = "有提袋"},
+                    new RadioButtonListViewModel() { Value = "Y2", Text = "沒有提袋"},
                 };
         }
 

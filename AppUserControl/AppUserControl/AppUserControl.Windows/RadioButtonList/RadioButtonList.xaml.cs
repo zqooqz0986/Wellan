@@ -14,14 +14,23 @@ namespace AppUserControl.RadioButtonList
             this.InitializeComponent();
         }
 
-        public List<CodeTypeInfo> DataSource
+        public string Group
         {
-            get { return (List<CodeTypeInfo>)GetValue(DataSourceProperty); }
+            get { return (string)GetValue(GroupProperty); }
+            set { SetValue(GroupProperty, value); }
+        }
+
+        public static readonly DependencyProperty GroupProperty =
+            DependencyProperty.Register("Group", typeof(string), typeof(RadioButtonList), new PropertyMetadata(string.Empty));
+
+        public List<RadioButtonListViewModel> DataSource
+        {
+            get { return (List<RadioButtonListViewModel>)GetValue(DataSourceProperty); }
             set { SetValue(DataSourceProperty, value); }
         }
 
         public static readonly DependencyProperty DataSourceProperty =
-            DependencyProperty.Register("DataSource", typeof(List<CodeTypeInfo>), typeof(RadioButtonList), new PropertyMetadata(null));
+            DependencyProperty.Register("DataSource", typeof(List<RadioButtonListViewModel>), typeof(RadioButtonList), new PropertyMetadata(null));
 
         public string Result
         {
@@ -39,7 +48,7 @@ namespace AppUserControl.RadioButtonList
             var self = d as RadioButtonList;
             if (self != null)
             {
-                var select = self.DataSource.Where(x => x.CodeId == newValue).FirstOrDefault();
+                var select = self.DataSource.Where(x => x.Value == newValue).FirstOrDefault();
 
                 if (select != null)
                 {

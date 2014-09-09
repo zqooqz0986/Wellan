@@ -18,7 +18,7 @@
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <RadioButton Content="{Binding CodeName}" GroupName="{Binding CodeType}" Tag="{Binding CodeId}" IsChecked="{Binding Selected, Mode=TwoWay}" Checked="RadioButton_Checked">
+                <RadioButton Content="{Binding Text}" GroupName="{Binding Group, ElementName=Self}" Tag="{Binding Value}" IsChecked="{Binding Selected, Mode=TwoWay}" Checked="RadioButton_Checked">
                 </RadioButton>
             </DataTemplate>
         </ItemsControl.ItemTemplate>

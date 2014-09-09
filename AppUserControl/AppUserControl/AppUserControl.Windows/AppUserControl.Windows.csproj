@@ -119,7 +119,7 @@
       <DependentUpon>ProductViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RadioButtonList\CodeTypeInfo.cs" />
+    <Compile Include="RadioButtonList\RadioButtonListViewModel.cs" />
     <Compile Include="RadioButtonList\RadioButtonList.xaml.cs">
       <DependentUpon>RadioButtonList.xaml</DependentUpon>
     </Compile>

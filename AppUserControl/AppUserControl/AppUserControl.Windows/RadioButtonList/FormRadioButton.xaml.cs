@@ -26,20 +26,20 @@ namespace IsabelleApp.CustomUserControl
             }
         }
 
-        public string GText
+        public string Text
         {
             get
             {
-                return (string)GetValue(GTextProperty);
+                return (string)GetValue(TextProperty);
             }
             set
             {
-                SetValue(GTextProperty, value);
+                SetValue(TextProperty, value);
             }
         }
 
-        public static readonly DependencyProperty GTextProperty =
-            DependencyProperty.Register("GText", typeof(string), typeof(FormRadioButton), new PropertyMetadata(string.Empty, (d, e) =>
+        public static readonly DependencyProperty TextProperty =
+            DependencyProperty.Register("Text", typeof(string), typeof(FormRadioButton), new PropertyMetadata(string.Empty, (d, e) =>
             {
                 if (e.NewValue != e.OldValue)
                 {

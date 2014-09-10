@@ -19,11 +19,11 @@
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <!--<Grid Name="holder" DataContext="{Binding}">
-                    <cs:FormRadioButton  GText="{Binding DataContext.Text, ElementName=holder}"></cs:FormRadioButton>
-                </Grid>-->
-                <cs:FormRadioButton  GText="{Binding Text}"></cs:FormRadioButton>
+                <cs:FormRadioButton  Text="{Binding Text}" ></cs:FormRadioButton>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>
 </UserControl>
+<!--<Grid Name="holder" DataContext="{Binding}">
+                    <cs:FormRadioButton  GText="{Binding DataContext.Text, ElementName=holder}"></cs:FormRadioButton>
+                </Grid>-->

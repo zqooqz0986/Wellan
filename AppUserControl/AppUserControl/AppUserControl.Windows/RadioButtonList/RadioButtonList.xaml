@@ -12,7 +12,6 @@
     xmlns:cs="using:IsabelleApp.CustomUserControl">
 
     <ItemsControl Name="List" DataContext="{Binding}" ItemsSource="{Binding DataSource}">
-        <!-- , ElementName=radioButtonList -->
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
                 <StackPanel Orientation="Horizontal" />
@@ -20,9 +19,10 @@
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <Grid Name="holder" DataContext="{Binding}">
+                <!--<Grid Name="holder" DataContext="{Binding}">
                     <cs:FormRadioButton  GText="{Binding DataContext.Text, ElementName=holder}"></cs:FormRadioButton>
-                </Grid>
+                </Grid>-->
+                <cs:FormRadioButton  GText="{Binding Text}"></cs:FormRadioButton>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>

@@ -9,10 +9,16 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
-    <!-- -->
+
+    <RadioButton.Resources>
+        <local:FormRadioButtonViewModel x:Key="ViewModel">
+            <local:FormRadioButtonViewModel.Text>None</local:FormRadioButtonViewModel.Text>
+        </local:FormRadioButtonViewModel>
+    </RadioButton.Resources>
+
     <RadioButton.Template>
         <ControlTemplate>
-            <TextBlock  Width="100" Height="50" Text="{Binding GText}" Tapped="TextBlock_Tapped"></TextBlock>
+            <TextBlock  Width="100" Height="50" Text="{Binding Text, Source={StaticResource ViewModel}}" ></TextBlock>
         </ControlTemplate>
     </RadioButton.Template>
 </RadioButton>

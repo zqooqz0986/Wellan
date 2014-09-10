@@ -16,14 +16,21 @@ namespace IsabelleApp.CustomUserControl
         public FormRadioButton()
         {
             this.InitializeComponent();
-            this.DataContext = this;
+        }
+
+        private FormRadioButtonViewModel ViewModel
+        {
+            get
+            {
+                return this.Resources["ViewModel"] as FormRadioButtonViewModel;
+            }
         }
 
         public string GText
         {
             get
             {
-                return (string)GetValue(GTextProperty); ;
+                return (string)GetValue(GTextProperty);
             }
             set
             {
@@ -32,14 +39,14 @@ namespace IsabelleApp.CustomUserControl
         }
 
         public static readonly DependencyProperty GTextProperty =
-            DependencyProperty.Register("GText", typeof(string), typeof(FormRadioButton), new PropertyMetadata(
-                "FormDefault", (d, e) => { var self = d as FormRadioButton; }));
-
-        private void TextBlock_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Debug.WriteLine("Joseph:{0}", (sender as TextBlock).Text);
-            this.UpdateLayout();
-        }
+            DependencyProperty.Register("GText", typeof(string), typeof(FormRadioButton), new PropertyMetadata(string.Empty, (d, e) =>
+            {
+                if (e.NewValue != e.OldValue)
+                {
+                    var self = d as FormRadioButton;
+                    self.ViewModel.Text = (string)e.NewValue;
+                }
+            }));
 
         /// <summary>
         /// 通知屬性值變更。
@@ -68,6 +75,18 @@ namespace IsabelleApp.CustomUserControl
         public ImageSource CheckImageSourceOfTripleColumnIn320 { get; set; }
 
         public ImageSource CheckImageSourceOfQuadrupleColumnIn320 { get; set; }
+
+        private string text;
+
+        public string Text
+        {
+            get { return this.text; }
+            set
+            {
+                this.text = value;
+                this.OnPropertyChanged();
+            }
+        }
 
         private string content;
 

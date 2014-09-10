@@ -111,6 +111,14 @@
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Enum\Brand.cs" />
+    <Compile Include="Enum\CakeType.cs" />
+    <Compile Include="Enum\FormColumnType.cs" />
+    <Compile Include="Enum\FormRadioButtonType.cs" />
+    <Compile Include="Enum\HandbagType.cs" />
+    <Compile Include="Enum\MainPageFunction.cs" />
+    <Compile Include="Enum\PackType.cs" />
+    <Compile Include="Enum\ProductKind.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -119,6 +127,9 @@
       <DependentUpon>ProductViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RadioButtonList\FormRadioButton.xaml.cs">
+      <DependentUpon>FormRadioButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RadioButtonList\RadioButtonListViewModel.cs" />
     <Compile Include="RadioButtonList\RadioButtonList.xaml.cs">
       <DependentUpon>RadioButtonList.xaml</DependentUpon>
@@ -148,6 +159,10 @@
     <Page Include="ProductViewer\ProductViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RadioButtonList\FormRadioButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="RadioButtonList\RadioButtonList.xaml">
       <SubType>Designer</SubType>

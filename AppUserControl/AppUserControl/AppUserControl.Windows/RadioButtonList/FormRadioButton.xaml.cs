@@ -16,24 +16,29 @@ namespace IsabelleApp.CustomUserControl
         public FormRadioButton()
         {
             this.InitializeComponent();
+            this.DataContext = this;
         }
 
         public string GText
         {
-            get { return (string)GetValue(GTextProperty); }
-            set { SetValue(GTextProperty, value); }
+            get
+            {
+                return (string)GetValue(GTextProperty); ;
+            }
+            set
+            {
+                SetValue(GTextProperty, value);
+            }
         }
 
         public static readonly DependencyProperty GTextProperty =
-            DependencyProperty.Register("GText", typeof(string), typeof(FormRadioButton), new PropertyMetadata("FormDefault", (d, e) =>
-            {
-                var self = d as FormRadioButton;
-                self.OnPropertyChanged();
-            }));
+            DependencyProperty.Register("GText", typeof(string), typeof(FormRadioButton), new PropertyMetadata(
+                "FormDefault", (d, e) => { var self = d as FormRadioButton; }));
 
         private void TextBlock_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             Debug.WriteLine("Joseph:{0}", (sender as TextBlock).Text);
+            this.UpdateLayout();
         }
 
         /// <summary>

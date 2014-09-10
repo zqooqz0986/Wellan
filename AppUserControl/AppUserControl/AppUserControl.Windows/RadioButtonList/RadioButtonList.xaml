@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Name="Self"
+    x:Name="radioButtonList"
     x:Class="AppUserControl.RadioButtonList.RadioButtonList"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,9 +8,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignWidth="400"
+    xmlns:cs="using:IsabelleApp.CustomUserControl">
 
-    <ItemsControl Name="List" Margin="40" ItemsSource="{Binding DataSource, ElementName=Self}">
+    <ItemsControl Name="List" DataContext="{Binding}" ItemsSource="{Binding DataSource}">
+        <!-- , ElementName=radioButtonList -->
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
                 <StackPanel Orientation="Horizontal" />
@@ -18,8 +20,9 @@
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <RadioButton Content="{Binding Text}" GroupName="{Binding Group, ElementName=Self}" Tag="{Binding Value}" IsChecked="{Binding Selected, Mode=TwoWay}" Checked="RadioButton_Checked">
-                </RadioButton>
+                <Grid Name="holder" DataContext="{Binding}">
+                    <cs:FormRadioButton  GText="{Binding DataContext.Text, ElementName=holder}"></cs:FormRadioButton>
+                </Grid>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>

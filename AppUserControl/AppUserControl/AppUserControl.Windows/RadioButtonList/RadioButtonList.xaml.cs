@@ -12,6 +12,7 @@ namespace AppUserControl.RadioButtonList
         public RadioButtonList()
         {
             this.InitializeComponent();
+            this.DataContext = this;
         }
 
         public string Group

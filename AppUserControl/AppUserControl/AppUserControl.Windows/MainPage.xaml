@@ -8,6 +8,7 @@
     xmlns:usercontrolnamespace="using:AppUserControl"
     xmlns:usercontrolnamespaceRadionButtonList="using:AppUserControl.RadioButtonList"
     mc:Ignorable="d"
+    xmlns:cs="using:IsabelleApp.CustomUserControl"
 >
     <ScrollViewer VerticalScrollMode="Auto">
         <StackPanel>
@@ -44,6 +45,7 @@
             <usercontrolnamespaceRadionButtonList:RadioButtonList x:Name="BrandButtonList"></usercontrolnamespaceRadionButtonList:RadioButtonList>
             <usercontrolnamespaceRadionButtonList:RadioButtonList x:Name="BagButtonList"></usercontrolnamespaceRadionButtonList:RadioButtonList>
             <Button Click="Button_Click">確認</Button>
+            <!--<cs:FormRadioButton GText="HH"></cs:FormRadioButton>-->
         </StackPanel>
     </ScrollViewer>
 </Page>

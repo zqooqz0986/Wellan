@@ -37,7 +37,10 @@ namespace AppUserControl.RadioButtonList
 
         public string Text
         {
-            get { return this.text; }
+            get
+            {
+                return this.text;
+            }
             set
             {
                 this.text = value;

@@ -11,7 +11,7 @@ using Windows.UI.Xaml.Media;
 
 namespace IsabelleApp.CustomUserControl
 {
-    public sealed partial class FormRadioButton : RadioButton, INotifyPropertyChanged
+    public sealed partial class FormRadioButton : RadioButton
     {
         public FormRadioButton()
         {
@@ -48,18 +48,54 @@ namespace IsabelleApp.CustomUserControl
                 }
             }));
 
-        /// <summary>
-        /// 通知屬性值變更。
-        /// </summary>
-        protected void OnPropertyChanged([CallerMemberName]string propertyName = null)
+        private FormRadioButtonType formRadioButtonType;
+
+        public FormRadioButtonType FormRadioButtonType
         {
-            if (this.PropertyChanged != null)
+            get
             {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                return this.formRadioButtonType;
+            }
+
+            set
+            {
+                this.formRadioButtonType = value;
+
+                switch (this.formRadioButtonType)
+                {
+                    case FormRadioButtonType.DoubleColumnIn320:
+                        this.ViewModel.Width = this.ViewModel.WidthOfDoubleColumnIn320;
+                        this.ViewModel.CheckImage = this.ViewModel.CheckImageSourceOfDoubleColumnIn320;
+                        break;
+
+                    case FormRadioButtonType.TripleColumnIn320:
+                        this.ViewModel.Width = this.ViewModel.WidthOfTripleColumnIn320;
+                        this.ViewModel.CheckImage = this.ViewModel.CheckImageSourceOfTripleColumnIn320;
+                        break;
+
+                    case FormRadioButtonType.QuadrupleColumnIn320:
+                        this.ViewModel.Width = this.ViewModel.WidthOfQuadrupleColumnIn320;
+                        this.ViewModel.CheckImage = this.ViewModel.CheckImageSourceOfQuadrupleColumnIn320;
+                        break;
+
+                    default:
+                        break;
+                }
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public ImageSource Image
+        {
+            get
+            {
+                return this.ViewModel.Image;
+            }
+
+            set
+            {
+                this.ViewModel.Image = value;
+            }
+        }
     }
 
     public class FormRadioButtonViewModel : NotifyPropertyChanged

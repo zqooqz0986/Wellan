@@ -13,12 +13,42 @@
     <RadioButton.Resources>
         <local:FormRadioButtonViewModel x:Key="ViewModel">
             <local:FormRadioButtonViewModel.Text>None</local:FormRadioButtonViewModel.Text>
+            <local:FormRadioButtonViewModel.WidthOfDoubleColumnIn320>132</local:FormRadioButtonViewModel.WidthOfDoubleColumnIn320>
+            <local:FormRadioButtonViewModel.WidthOfTripleColumnIn320>88</local:FormRadioButtonViewModel.WidthOfTripleColumnIn320>
+            <local:FormRadioButtonViewModel.WidthOfQuadrupleColumnIn320>66</local:FormRadioButtonViewModel.WidthOfQuadrupleColumnIn320>
+            <local:FormRadioButtonViewModel.CheckImageSourceOfDoubleColumnIn320>ms-appx:///Assets/btn_selected_03.png</local:FormRadioButtonViewModel.CheckImageSourceOfDoubleColumnIn320>
+            <local:FormRadioButtonViewModel.CheckImageSourceOfTripleColumnIn320>ms-appx:///Assets/btn_selected_02.png</local:FormRadioButtonViewModel.CheckImageSourceOfTripleColumnIn320>
+            <local:FormRadioButtonViewModel.CheckImageSourceOfQuadrupleColumnIn320>ms-appx:///Assets/btn_selected_01.png</local:FormRadioButtonViewModel.CheckImageSourceOfQuadrupleColumnIn320>
         </local:FormRadioButtonViewModel>
     </RadioButton.Resources>
 
     <RadioButton.Template>
         <ControlTemplate>
-            <TextBlock  Width="100" Height="50" Text="{Binding Text, Source={StaticResource ViewModel}}" ></TextBlock>
+            <Grid Background="Transparent" Height="59" DataContext="{Binding Source={StaticResource ViewModel}}" Width="{Binding Width}">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CheckStates">
+                        <VisualState x:Name="Checked">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="CheckImage">
+                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <Visibility>Visible</Visibility>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="Unchecked" />
+                        <VisualState x:Name="Indeterminate" />
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="{StaticResource ChineseFontFamily}" FontSize="{StaticResource ContextFontSize}" Text="{Binding Text}" />
+                <Image Source="{Binding Image}" Stretch="Fill" />
+                <Grid Background="Black" Width="1" Height="22" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <Image Source="ms-appx:///Assets/bg_tabbar_1.png" Stretch="Fill" Height="3" VerticalAlignment="Bottom" Width="{Binding Width}" />
+                <Image x:Name="CheckImage" Visibility="Collapsed" Source="{Binding CheckImage}" VerticalAlignment="Bottom" Height="9" Width="{Binding Width}" />
+            </Grid>
+            <!--<TextBlock  Width="100" Height="50" Text="{Binding Text, Source={StaticResource ViewModel}}" ></TextBlock>-->
         </ControlTemplate>
     </RadioButton.Template>
 </RadioButton>
